@@ -4,15 +4,15 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
-senderAddr = "aarunjha01@gmail.com"
-receiverAddr = "arun.jha.cse99@gmail.com"
+senderAddr = "Sender's Email Address"
+receiverAddr = "Receiver's Email Address"
 
 msg = MIMEMultipart()
 
 msg['From'] = senderAddr
 msg['To'] = receiverAddr
-msg['Subject'] = "Important Notice from TPO"
-body = "This is to inform you that Infosys is going to recruit 2021 batch today."
+msg['Subject'] = "Your Subject"
+body = "Your Message"
 
 msg.attach(MIMEText(body, 'plain'))
 filename = "test.txt"
@@ -27,7 +27,7 @@ msg.attach(p)
 
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
-s.login(senderAddr, "7898_361693")
+s.login(senderAddr, "Sender's Gmail Password")
 text = msg.as_string()
 s.sendmail(senderAddr, receiverAddr, text)
 s.quit()
